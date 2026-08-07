@@ -29,16 +29,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: photo-club
 
       - name: Build
         run: npm run build
-        working-directory: photo-club
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: photo-club/dist
+          path: dist
 
   deploy:
     needs: build
