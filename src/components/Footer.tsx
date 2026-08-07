@@ -1,0 +1,58 @@
+import React from 'react';
+import { Camera } from 'lucide-react';
+import { Link } from 'wouter';
+
+const Footer = () => {
+  return (
+    <footer className="bg-background border-t border-white/10 pt-20 pb-10 relative z-20">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16">
+          
+          <div className="flex flex-col items-center md:items-start">
+            <Link href="/" className="flex items-center gap-2 mb-6 group">
+              <Camera className="w-8 h-8 text-secondary" />
+              <span className="font-serif text-3xl tracking-widest uppercase font-semibold">
+                Photog
+              </span>
+            </Link>
+            <p className="text-muted-foreground font-light text-sm text-center md:text-left max-w-xs">
+              The official photography club of MVSR College of Engineering. Fostering creativity through the lens.
+            </p>
+          </div>
+
+          <div className="flex gap-12">
+            <div>
+              <h4 className="text-white uppercase tracking-widest text-xs font-semibold mb-6">Navigation</h4>
+              <ul className="space-y-4 text-sm font-light text-muted-foreground">
+                <li><a href="#about" className="hover:text-secondary transition-colors">About Us</a></li>
+                <li><a href="#gallery" className="hover:text-secondary transition-colors">Gallery</a></li>
+                <li><a href="#events" className="hover:text-secondary transition-colors">Events</a></li>
+                <li><a href="#members" className="hover:text-secondary transition-colors">Members</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-white uppercase tracking-widest text-xs font-semibold mb-6">Socials</h4>
+              <ul className="space-y-4 text-sm font-light text-muted-foreground">
+                <li><a href="#" className="hover:text-secondary transition-colors">Instagram</a></li>
+                <li><a href="#" className="hover:text-secondary transition-colors">Behance</a></li>
+                <li><a href="#" className="hover:text-secondary transition-colors">VSCO</a></li>
+                <li><a href="#" className="hover:text-secondary transition-colors">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-white/40 uppercase tracking-wider">
+          <p>&copy; {new Date().getFullYear()} Photog — MVSR College Photography Club.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
