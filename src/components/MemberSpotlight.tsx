@@ -23,23 +23,16 @@ const leadership: YearGroup[] = [
         name: 'Shivani',
         role: 'Head of The Photog Club',
         insta: '@clickssss._',
-        image: 'member-7.jpg',
+        image: 'member-8.jpg',
         quote: 'Photography is the art of revealing what the eye misses in a fleeting glance.'
       },
       {
         name: 'Rishikesh',
         role: 'Head of The Cinematography Club',
         insta: 'https://www.instagram.com/era_clicks.co?igsh=OGNveWF5ZjRrc3R3',
-        image: 'member-6.jpg',
+        image: 'member-7.jpg',
         quote: 'The story behind the lens is what truly matters.'
       },
-      {
-        name: 'Kovid',
-        role: 'Manager',
-        insta: '@kovid',
-        image: 'member-5.jpg',
-        quote: 'The best stories are shaped with patience, vision, and a steady hand.'
-      }
     ]
   },
   {
@@ -49,14 +42,14 @@ const leadership: YearGroup[] = [
         name: 'Keerti',
         role: 'Head of The Photog Club',
         insta: '@keerti',
-        image: 'member-5.jpg',
-        quote: 'There is magic in the darkroom that digital pixels can never replicate.'
+        image: 'member-6.jpg',
+        quote: 'Some moments are too beautiful to be remembered only by memory.'
       },
       {
         name: 'Sathvik',
         role: 'Head of The Cinematography Club',
         insta: '@sathvik',
-        image: 'member-3.jpg',
+        image: 'member-5.jpg',
         quote: 'There is magic in the darkroom that digital pixels can never replicate.'
       }
     ]
@@ -68,7 +61,7 @@ const leadership: YearGroup[] = [
         name: 'Giri Charan',
         role: 'Head of The Photog Club',
         insta: '@giricharan',
-        image: 'member-3.jpg',
+        image: 'member-4.jpg',
         quote: 'Life is a series of moments captured in time. Click, frame, and live the memory.'
       },
       {
@@ -250,4 +243,4 @@ const MemberSpotlight = () => {
   );
 };
 
-export default MemberSpotlight;
+export default MemberSpotlight;

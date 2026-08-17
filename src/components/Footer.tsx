@@ -3,6 +3,21 @@ import { Camera } from 'lucide-react';
 import { Link } from 'wouter';
 
 const Footer = () => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <footer className="bg-background border-t border-white/10 pt-20 pb-10 relative z-20">
       <div className="container mx-auto px-6">
@@ -24,20 +39,37 @@ const Footer = () => {
             <div>
               <h4 className="text-white uppercase tracking-widest text-xs font-semibold mb-6">Navigation</h4>
               <ul className="space-y-4 text-sm font-light text-muted-foreground">
-                <li><a href="#about" className="hover:text-secondary transition-colors">About Us</a></li>
-                <li><a href="#gallery" className="hover:text-secondary transition-colors">Gallery</a></li>
-                <li><a href="#events" className="hover:text-secondary transition-colors">Events</a></li>
-                <li><a href="#members" className="hover:text-secondary transition-colors">Members</a></li>
+                <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-secondary transition-colors">About Us</a></li>
+                <li><a href="#gallery" onClick={(e) => scrollToSection(e, 'gallery')} className="hover:text-secondary transition-colors">Gallery</a></li>
+                <li><a href="#activities" onClick={(e) => scrollToSection(e, 'activities')} className="hover:text-secondary transition-colors">Activities</a></li>
+                <li><a href="#members" onClick={(e) => scrollToSection(e, 'members')} className="hover:text-secondary transition-colors">Members</a></li>
+                <li><a href="#join" onClick={(e) => scrollToSection(e, 'join')} className="hover:text-secondary transition-colors">Join Us</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-white uppercase tracking-widest text-xs font-semibold mb-6">Socials</h4>
               <ul className="space-y-4 text-sm font-light text-muted-foreground">
-                <li><a href="#" className="hover:text-secondary transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-secondary transition-colors">Behance</a></li>
-                <li><a href="#" className="hover:text-secondary transition-colors">VSCO</a></li>
-                <li><a href="#" className="hover:text-secondary transition-colors">Email</a></li>
+                <li>
+                  <a 
+                    href="https://www.instagram.com/thephotogclub/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-secondary transition-colors"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://chat.whatsapp.com/photogmvsr" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-secondary transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -46,8 +78,8 @@ const Footer = () => {
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-white/40 uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} Photog — MVSR College Photography Club.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white transition-colors">About</a>
+            <a href="#join" onClick={(e) => scrollToSection(e, 'join')} className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
       </div>
