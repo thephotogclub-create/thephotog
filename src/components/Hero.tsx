@@ -7,7 +7,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
   return (
-    <section className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-background">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center bg-background">
       <motion.div 
         style={{ y, opacity }}
         className="absolute inset-0 z-0"
@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
         {/* We use the generated hero image here */}
         <img 
-          src={`${import.meta.env.BASE_URL}hero.jpg`} 
+          src={`${import.meta.env.BASE_URL}hero1.jpeg`} 
           alt="Vintage Film Camera" 
           className="w-full h-full object-cover opacity-80"
         />
@@ -29,12 +29,12 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-secondary/70 uppercase tracking-[0.3em] text-sm font-medium mb-6 block">
-            MVSR College Photography Club
+            MVSR College
           </span>
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-none mb-6">
-            Light &<br />
+            Photography &<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-white to-secondary/50">
-              Shadow
+              Cinematography club
             </span>
           </h1>
         </motion.div>
@@ -70,10 +70,9 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/50"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white/50"
       >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent" />
+        <div className="w-px h-16 bg-gradient-to-b from-white/50 to-transparent" />
       </motion.div>
     </section>
   );

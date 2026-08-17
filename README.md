@@ -1,6 +1,18 @@
-# Photog — MVSR College Photography Club
+# The Photog — Photography & Cinematography Club Website
 
-Official website for the **Photog** photography club at MVSR College of Engineering. Built with React, Vite, Tailwind CSS, and Framer Motion.
+A polished one-page website for The Photog club, built with React, Vite, Tailwind CSS, and Framer Motion. The site highlights the club’s mission, featured work, member leadership, activities, and join options.
+
+---
+
+## Features
+
+- Hero section with club branding and strong visual identity
+- About section describing the club’s purpose
+- Gallery showcase with a lightbox experience
+- Activities section for club events and initiatives
+- Member spotlight for current and past leadership
+- Join section with Instagram and WhatsApp connection options
+- Responsive layout with motion-based section transitions
 
 ---
 
@@ -8,10 +20,11 @@ Official website for the **Photog** photography club at MVSR College of Engineer
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/) v18 or higher
-- [pnpm](https://pnpm.io/) v8 or higher
+- Node.js 18 or newer
+- pnpm 8 or newer
 
-Install pnpm if you don't have it:
+Install pnpm if needed:
+
 ```bash
 npm install -g pnpm
 ```
@@ -22,121 +35,85 @@ npm install -g pnpm
 
 ### 1. Install dependencies
 
-From inside the `photo-club` folder:
-
 ```bash
 pnpm install
 ```
 
-### 2. Set required environment variables
-
-The dev server needs two environment variables. Create a `.env` file in the `photo-club` folder:
-
-```env
-PORT=3000
-BASE_PATH=/
-```
-
-### 3. Run the development server
+### 2. Start the development server
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+No extra environment variables are required for normal local development. The project already configures the Vite base path and port in [vite.config.ts](vite.config.ts), so you can open http://localhost:5173 in your browser.
 
 ---
 
-## Build for Production
+## Available Scripts
 
 ```bash
-pnpm build
-```
-
-The production-ready files will be output to the `dist/public/` folder. You can serve them with any static file host (Netlify, Vercel, GitHub Pages, etc.).
-
-To preview the production build locally:
-
-```bash
-pnpm serve
+pnpm dev      # start the Vite development server
+pnpm build    # create a production build
+pnpm serve    # preview the production build locally
+pnpm typecheck  # run TypeScript checks
 ```
 
 ---
 
 ## Project Structure
 
-```
-photo-club/
-├── public/               # Static assets (images, favicon)
-│   ├── hero.jpg
-│   ├── gallery-1.jpg … gallery-8.jpg
-│   └── member-1.jpg … member-3.jpg
-├── src/
-│   ├── components/       # Page sections
-│   │   ├── Navbar.tsx
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Gallery.tsx
-│   │   ├── Events.tsx
-│   │   ├── MemberSpotlight.tsx
-│   │   ├── JoinSection.tsx
-│   │   └── Footer.tsx
-│   ├── pages/
-│   │   └── Home.tsx      # Assembles all sections
-│   ├── App.tsx           # Router setup
-│   ├── main.tsx          # Entry point
-│   └── index.css         # Global styles & color tokens
-├── index.html
-├── vite.config.ts
-├── package.json
-└── tsconfig.json
+```text
+src/
+├── components/
+│   ├── About.tsx
+│   ├── Events.tsx
+│   ├── Footer.tsx
+│   ├── Gallery.tsx
+│   ├── Hero.tsx
+│   ├── JoinSection.tsx
+│   ├── MemberSpotlight.tsx
+│   ├── Navbar.tsx
+│   └── ui/
+├── pages/
+│   └── Home.tsx
+├── App.tsx
+├── index.css
+├── main.tsx
+public/
+├── images and QR assets
+└── favicon and shared media
 ```
 
 ---
 
-## Customisation
+## Customization
 
-### Update Club Social Links
+### Update social links
 
-Open `src/components/JoinSection.tsx` and replace the placeholder values at the top of the file:
+Edit the join section in [src/components/JoinSection.tsx](src/components/JoinSection.tsx) to change the Instagram and WhatsApp links.
 
-```ts
-const INSTAGRAM_HANDLE = '@photog.mvsr';       // your Instagram username
-const INSTAGRAM_URL    = 'https://www.instagram.com/photog.mvsr';  // full URL
-const WHATSAPP_LINK    = 'https://chat.whatsapp.com/xxxxxx';       // your group invite link
-```
+### Replace gallery and member images
 
-### Swap Gallery Images
+Place new assets in [public](public) and update the relevant image references in the component files.
 
-Drop new `.jpg` files into the `public/` folder and update the filenames in `src/components/Gallery.tsx`:
+### Change visual theme
 
-```ts
-const images = [
-  { src: 'your-photo.jpg', alt: 'Title', category: 'Portrait', photographer: 'Name', year: '2024' },
-  // …
-];
-```
-
-### Change Colours
-
-All colours are defined as CSS variables in `src/index.css` under `:root`. The primary maroon is `--primary` and the off-white cream is `--secondary`.
+The global colors and styling tokens are defined in [src/index.css](src/index.css).
 
 ---
 
 ## Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| [React 18](https://react.dev/) | UI framework |
-| [Vite](https://vitejs.dev/) | Build tool & dev server |
-| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
-| [Framer Motion](https://www.framer.com/motion/) | Animations & scroll effects |
-| [Wouter](https://github.com/molefrog/wouter) | Lightweight client-side routing |
-| [Lucide React](https://lucide.dev/) | Icons |
-| [Playfair Display + Inter](https://fonts.google.com/) | Typography (loaded via Google Fonts) |
+- React 18
+- Vite 5
+- Tailwind CSS v4
+- Framer Motion
+- Wouter
+- Lucide React
+- Radix UI primitives
 
 ---
 
 ## License
 
-MIT — free to use and modify for club purposes.
+This project is intended for club use and can be adapted freely.
