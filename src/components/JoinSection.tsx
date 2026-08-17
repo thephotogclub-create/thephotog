@@ -14,7 +14,7 @@ const WHATSAPP_LINK = 'https://chat.whatsapp.com/photogmvsr';
 
 const JoinSection = () => {
   return (
-    <section className="relative py-32 border-t border-white/5 overflow-hidden">
+    <section id="join" className="relative py-32 border-t border-white/5 overflow-hidden">
       <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent" />
 

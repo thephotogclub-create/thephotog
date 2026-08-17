@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { Camera, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  React.useEffect(() => {
+  const navItems = [
+    { label: 'About', id: 'about' },
+    { label: 'Gallery', id: 'gallery' },
+    { label: 'Activities', id: 'activities' },
+    { label: 'Members', id: 'members' },
+    { label: 'Join', id: 'join' }
+  ];
+
+  useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
+
+      // Section scrollspy
+      const sections = ['about', 'gallery', 'activities', 'members', 'join'];
+      const scrollPosition = window.scrollY + 180;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
+
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setIsMenuOpen(false);
@@ -25,99 +51,115 @@ const Navbar = () => {
     };
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
+    setActiveSection(id);
 
-  const navItems = [
-    { label: 'about', id: 'about' },
-    { label: 'gallery', id: 'gallery' },
-    { label: 'activities', id: 'activities'},
-    { label: 'members', id: 'members' },
-    { label: 'join', id: 'join' }
-  ];
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const navHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-500 border-b ${
-        isScrolled ? 'backdrop-blur-md border-white/10 shadow-lg shadow-black/10' : 'border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-3.5 lg:py-4'
+          : 'bg-gradient-to-b from-background/95 via-background/60 to-transparent py-4 lg:py-6'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 h-24 sm:h-28 lg:h-32 xl:h-36 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-3 sm:gap-4 group flex-shrink-0">
-          <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-secondary/30 bg-secondary/10 text-secondary shadow-sm shadow-secondary/10 transition-transform duration-500 group-hover:scale-110">
-            <Camera className="w-5 h-5 sm:w-6 sm:h-6" />
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 group shrink-0">
+          <div className="flex h-10 w-10 sm:h-12 sm:w-12 xl:h-14 xl:w-14 items-center justify-center rounded-full border border-secondary/40 bg-secondary/15 text-secondary shadow-[0_0_20px_rgba(212,175,55,0.2)] transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary/25">
+            <Camera className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-secondary" />
           </div>
           <div className="flex flex-col items-start">
-            <span className="font-serif text-xl sm:text-2xl md:text-[1.75rem] tracking-[0.28em] uppercase font-semibold leading-none text-white">
+            <span className="font-serif text-lg sm:text-2xl xl:text-3xl tracking-[0.25em] uppercase font-bold text-white leading-none">
               Photog
             </span>
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-muted-foreground mt-1">
+            <span className="text-[9px] sm:text-[10px] xl:text-xs uppercase tracking-[0.35em] text-secondary/90 mt-1 font-medium">
               Club
             </span>
           </div>
         </Link>
 
-        <div className="flex items-center gap-3">
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-10 2xl:gap-12">
-            {navItems.map((item) => (
-              <React.Fragment key={item.id}>
-                {item.divider && <span className="h-px w-8 bg-white/20" />}
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => scrollToSection(e, item.id)}
-                  className="text-lg xl:text-xl 2xl:text-2xl font-extrabold tracking-[0.12em] uppercase text-white hover:text-secondary transition-all duration-300 relative after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:bg-secondary after:transition-all hover:after:w-full drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]"
-                >
-                  {item.label}
-                </a>
-              </React.Fragment>
-            ))}
-          </nav>
+        {/* Laptop & Desktop Navigation Bar */}
+        <nav className="hidden lg:flex items-center gap-2 xl:gap-3 p-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-2xl shadow-2xl">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => scrollToSection(item.id)}
+                className={`px-6 py-2.5 xl:px-7 xl:py-3 rounded-full text-xs xl:text-sm font-bold uppercase tracking-[0.22em] transition-all duration-300 ${
+                  isActive
+                    ? 'bg-secondary text-background shadow-[0_0_25px_rgba(212,175,55,0.4)] scale-105'
+                    : 'text-white/85 hover:text-white hover:bg-white/15'
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </nav>
 
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="lg:hidden flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/10 hover:text-secondary"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+        {/* Mobile Hamburger Toggle Button */}
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className="lg:hidden flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition hover:bg-white/20 hover:text-secondary active:scale-95 shrink-0"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
+      {/* Mobile Menu Dropdown Panel */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden mx-4 mb-4 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-md shadow-2xl shadow-black/30"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-2xl border-b border-white/10 px-5 py-5 mt-2"
           >
-            <nav className="flex flex-col p-2">
-              {navItems.map((item) => (
-                <React.Fragment key={item.id}>
-                  {item.divider && <div className="my-2 border-t border-white/10" />}
-                  <a
-                    href={`#${item.id}`}
-                    onClick={(e) => scrollToSection(e, item.id)}
-                    className="min-h-[44px] px-3 py-3 text-sm font-bold tracking-[0.24em] uppercase text-white hover:text-secondary transition-colors duration-300"
+            <div className="flex flex-col gap-2.5">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => scrollToSection(item.id)}
+                    className={`px-5 py-3.5 rounded-xl text-sm font-bold uppercase tracking-[0.25em] transition-all duration-300 flex items-center justify-between text-left w-full ${
+                      isActive
+                        ? 'bg-secondary text-background shadow-lg'
+                        : 'border border-white/10 bg-white/5 text-white/85 hover:bg-white/10 hover:text-white'
+                    }`}
                   >
-                    {item.label}
-                  </a>
-                </React.Fragment>
-              ))}
-            </nav>
+                    <span>{item.label}</span>
+                    <span className="text-xs opacity-70">→</span>
+                  </button>
+                );
+              })}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

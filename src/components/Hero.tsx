@@ -6,6 +6,21 @@ const Hero = () => {
   const y = useTransform(scrollY, [0, 1000], [0, 400]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center bg-background">
       <motion.div 
@@ -31,7 +46,7 @@ const Hero = () => {
           <span className="text-secondary/70 uppercase tracking-[0.3em] text-sm font-medium mb-6 block">
             MVSR College
           </span>
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-none mb-6">
+          <h1 className="font-serif text-[2.1rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight sm:tracking-tighter leading-[1.12] sm:leading-none mb-6 max-w-full break-words">
             Photography &<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-white to-secondary/50">
               Cinematography club
@@ -52,13 +67,15 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
               href="#gallery" 
-              className="px-8 py-4 bg-white text-background font-medium tracking-widest uppercase text-sm hover:bg-secondary transition-colors duration-300 w-full sm:w-auto"
+              onClick={(e) => scrollToSection(e, 'gallery')}
+              className="px-8 py-4 bg-white text-background font-medium tracking-widest uppercase text-sm hover:bg-secondary transition-colors duration-300 w-full sm:w-auto text-center"
             >
               Explore Gallery
             </a>
             <a 
               href="#join" 
-              className="px-8 py-4 border border-white/20 hover:border-white text-white font-medium tracking-widest uppercase text-sm transition-all duration-300 w-full sm:w-auto hover:bg-white/5"
+              onClick={(e) => scrollToSection(e, 'join')}
+              className="px-8 py-4 border border-white/20 hover:border-white text-white font-medium tracking-widest uppercase text-sm transition-all duration-300 w-full sm:w-auto hover:bg-white/5 text-center"
             >
               Join the Community
             </a>

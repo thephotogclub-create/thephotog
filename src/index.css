@@ -235,6 +235,14 @@
   border-color: hsl(var(--border));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
 body {
   font-family: var(--app-font-sans);
   -webkit-font-smoothing: antialiased;
