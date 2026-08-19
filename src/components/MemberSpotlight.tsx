@@ -78,6 +78,18 @@ const leadership: YearGroup[] = [
     members: [
       {
         name: 'Prudhvi',
+        role: 'Head of The Photog & Cinematography Club',
+        insta: '@urbanwrench',
+        image: 'member-2.jpg',
+        quote: 'There is magic in the darkroom that digital pixels can never replicate.'
+      }
+    ]
+  },
+  {
+    year: '2022-2023',
+    members: [
+      {
+        name: 'Prudhvi',
         role: 'Head of The Photog Club',
         insta: '@urbanwrench',
         image: 'member-2.jpg',
