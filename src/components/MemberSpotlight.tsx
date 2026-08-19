@@ -41,14 +41,14 @@ const leadership: YearGroup[] = [
       {
         name: 'Keerti',
         role: 'Head of The Photog Club',
-        insta: '@keerti',
+        insta: 'https://www.instagram.com/shotsbykeerti?igsi=ZXNxbzV4MWI1c3Fp',
         image: 'member-6.jpg',
         quote: 'Some moments are too beautiful to be remembered only by memory.'
       },
       {
-        name: 'Sathvik',
+        name: 'Sathwik',
         role: 'Head of The Cinematography Club',
-        insta: '@sathvik',
+        insta: 'https://www.instagram.com/sunnyyyyyy_20?igsi=MTVyMjc5bHl6M2E0dQ==',
         image: 'member-5.jpg',
         quote: 'There is magic in the darkroom that digital pixels can never replicate.'
       }
@@ -60,7 +60,7 @@ const leadership: YearGroup[] = [
       {
         name: 'Giri Charan',
         role: 'Head of The Photog Club',
-        insta: '@giricharan',
+        insta: 'https://www.instagram.com/_the_poltergeist?igsi=MTM5bHFlcHphbnB6ZQ==',
         image: 'member-4.jpg',
         quote: "And at the end, I'm very much sure that Ill be left only with my camera"
       },
