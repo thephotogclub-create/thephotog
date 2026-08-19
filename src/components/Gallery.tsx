@@ -5,78 +5,78 @@ import { X, ArrowUpRight } from 'lucide-react';
 const images = [
   {
     id: 1,
-    src: 'gallery-1.jpg',
+    src: 'gal-1.jpeg',
     alt: 'Dramatic Portrait',
     photographer: 'Arjun Reddy',
     year: '2026',
   },
   {
     id: 2,
-    src: 'gallery-2.jpg',
+    src: 'gal-2.jpg',
     alt: 'City Lights',
     photographer: 'Priya Sharma',
     year: '2026',
   },
   {
     id: 3,
-    src: 'gallery-3.jpg',
+    src: 'gal-3.jpg',
     alt: 'Urban Lines',
     photographer: 'Karthik Rao',
     year: '2026',
   },
   {
     id: 4,
-    src: 'gallery-4.jpg',
+    src: 'gal-4.jpg',
     alt: 'Morning Bloom',
     photographer: 'Sneha Patel',
     year: '2026',
   },
   {
     id: 5,
-    src: 'gallery-5.jpg',
+    src: 'gal-5.jpg',
     alt: 'Fashion Study',
     photographer: 'Ravi Kumar',
     year: '2026',
   },
   {
     id: 6,
-    src: 'gallery-6.jpg',
+    src: 'gal-6.jpg',
     alt: 'Street Soul',
     photographer: 'Divya Nair',
     year: '2026',
   },
   {
     id: 7,
-    src: 'gallery-7.jpg',
+    src: 'gal-7.jpg',
     alt: 'Close Focus',
     photographer: 'Aditya Singh',
     year: '2026',
   },
   {
     id: 8,
-    src: 'gallery-8.jpg',
+    src: 'gal-8.jpg',
     alt: 'Geometric Forms',
     photographer: 'Meera Iyengar',
     year: '2026',
   },
   {
     id: 9,
-    src: 'gallery-9.jpg',
+    src: 'bitra_anna.jpg',
     alt: 'Quiet Moment',
-    photographer: 'Member',
+    photographer: 'Bitra Anna',
     year: '2026',
   },
   {
     id: 10,
-    src: 'gallery-10.jpg',
+    src: 'hero1.jpeg',
     alt: 'After Light',
-    photographer: 'Member',
+    photographer: 'Club Selection',
     year: '2026',
   },
 ];
 
 const Gallery = () => {
-  const [lightbox, setLightbox] = useState(null);
+  const [lightbox, setLightbox] = useState<any>(null);
 
   return (
     <section
@@ -111,70 +111,9 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative group cursor-pointer overflow-hidden mb-4"
-          onClick={() => setLightbox(images[0])}
-        >
-          <div className="aspect-[16/8] md:aspect-[16/7]">
-            <img
-              src={`${import.meta.env.BASE_URL}${images[0].src}`}
-              alt={images[0].alt}
-              fetchPriority="high"
-              decoding="async"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-          <div className="absolute bottom-0 left-0 p-6 md:p-10">
-            <span className="text-secondary text-xs uppercase tracking-widest">
-              Featured
-            </span>
-
-            <h3 className="font-serif text-3xl md:text-5xl mt-2">
-              {images[0].alt}
-            </h3>
-
-            <p className="text-white/50 text-sm mt-2">
-              {images[0].photographer} · {images[0].year}
-            </p>
-          </div>
-
-          <div className="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <ArrowUpRight className="w-4 h-4" />
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-          {images.slice(1, 4).map((image, index) => (
-            <PhotoCard
-              key={image.id}
-              image={image}
-              index={index}
-              onClick={() => setLightbox(image)}
-            />
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          {images.slice(4, 6).map((image, index) => (
-            <PhotoCard
-              key={image.id}
-              image={image}
-              index={index}
-              large
-              onClick={() => setLightbox(image)}
-            />
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.slice(6, 10).map((image, index) => (
+        {/* Masonry layout preserving natural aspect ratios */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          {images.map((image, index) => (
             <PhotoCard
               key={image.id}
               image={image}
@@ -203,7 +142,7 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
             onClick={() => setLightbox(null)}
           >
             <motion.div
@@ -211,31 +150,31 @@ const Gallery = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="relative max-w-5xl w-full"
+              className="relative max-w-5xl w-full flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={`${import.meta.env.BASE_URL}${lightbox.src}`}
                 alt={lightbox.alt}
-                className="w-full max-h-[80vh] object-contain"
+                className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
               />
 
-              <div className="flex items-end justify-between mt-5">
+              <div className="flex items-end justify-between w-full mt-5">
                 <div>
                   <h3 className="font-serif text-2xl text-white">
                     {lightbox.alt}
                   </h3>
 
-                  <p className="text-sm text-white/40 mt-1">
+                  <p className="text-sm text-white/50 mt-1">
                     {lightbox.photographer} · {lightbox.year}
                   </p>
                 </div>
 
                 <button
                   onClick={() => setLightbox(null)}
-                  className="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-white transition-colors"
+                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition-colors bg-white/10 backdrop-blur-md"
                 >
-                  <X className="w-4 h-4 text-white" />
+                  <X className="w-5 h-5 text-white" />
                 </button>
               </div>
             </motion.div>
@@ -246,7 +185,7 @@ const Gallery = () => {
   );
 };
 
-const PhotoCard = ({ image, index, large = false, onClick }) => {
+const PhotoCard = ({ image, index, onClick }: { image: any; index: number; onClick: () => void }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -254,34 +193,39 @@ const PhotoCard = ({ image, index, large = false, onClick }) => {
       viewport={{ once: true }}
       transition={{
         duration: 0.7,
-        delay: index * 0.08,
+        delay: index * 0.05,
       }}
-      className="relative group cursor-pointer overflow-hidden"
+      className="break-inside-avoid mb-6 w-full inline-block relative group cursor-pointer overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-lg"
       onClick={onClick}
     >
-      <div className={large ? 'aspect-[4/3]' : 'aspect-square'}>
+      <div className="w-full h-auto overflow-hidden">
         <img
           src={`${import.meta.env.BASE_URL}${image.src}`}
           alt={image.alt}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-      <div className="absolute bottom-0 left-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <h4 className="font-serif text-xl text-white">
-          {image.alt}
-        </h4>
+      <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex justify-between items-end">
+        <div>
+          <h4 className="font-serif text-xl text-white">
+            {image.alt}
+          </h4>
+          <p className="text-xs text-white/60 mt-1">
+            {image.photographer} · {image.year}
+          </p>
+        </div>
 
-        <p className="text-xs text-white/50 mt-1">
-          {image.photographer}
-        </p>
+        <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+          <ArrowUpRight className="w-4 h-4 text-white" />
+        </div>
       </div>
 
-      <span className="absolute top-4 right-4 text-xs text-white/40 font-mono">
+      <span className="absolute top-4 right-4 text-xs text-white/80 font-mono bg-black/50 backdrop-blur-md px-2 py-1 rounded border border-white/10">
         {String(image.id).padStart(2, '0')}
       </span>
     </motion.div>
