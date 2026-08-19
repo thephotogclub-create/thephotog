@@ -29,7 +29,7 @@ const leadership: YearGroup[] = [
       {
         name: 'Rishikesh',
         role: 'Head of The Cinematography Club',
-        insta: 'https://www.instagram.com/era_clicks.co?igsh=OGNveWF5ZjRrc3R3',
+        insta: '@era_clicks.co',
         image: 'member-7.jpg',
         quote: 'We don’t capture moment, we collect evidence.'
       },
@@ -41,14 +41,14 @@ const leadership: YearGroup[] = [
       {
         name: 'Keerti',
         role: 'Head of The Photog Club',
-        insta: 'https://www.instagram.com/shotsbykeerti?igsi=ZXNxbzV4MWI1c3Fp',
+        insta: '@shotsbykeerti',
         image: 'member-6.jpg',
         quote: 'Some moments are too beautiful to be remembered only by memory.'
       },
       {
         name: 'Sathwik',
         role: 'Head of The Cinematography Club',
-        insta: 'https://www.instagram.com/sunnyyyyyy_20?igsi=MTVyMjc5bHl6M2E0dQ==',
+        insta: '@sunnyyyyyy_20',
         image: 'member-5.jpg',
         quote: 'There is magic in the darkroom that digital pixels can never replicate.'
       }
@@ -60,14 +60,14 @@ const leadership: YearGroup[] = [
       {
         name: 'Giri Charan',
         role: 'Head of The Photog Club',
-        insta: 'https://www.instagram.com/_the_poltergeist?igsi=MTM5bHFlcHphbnB6ZQ==',
+        insta: '@_the_poltergeist',
         image: 'member-4.jpg',
         quote: "And at the end, I'm very much sure that Ill be left only with my camera"
       },
       {
         name: 'Neeraj Kumar',
         role: 'Head of The Cinematography Club',
-        insta: 'https://www.instagram.com/neeraajhkumaar?igsh=MXVzZGtlNzd4OGxhOQ==',
+        insta: '@neeraajhkumaar',
         image: 'member-3.jpg',
         quote: 'You do not choose ART, ART chooses you.'
       }
@@ -79,7 +79,7 @@ const leadership: YearGroup[] = [
       {
         name: 'Prudhvi',
         role: 'Head of The Photog Club',
-        insta: 'https://www.instagram.com/urbanwrench?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+        insta: '@urbanwrench',
         image: 'member-2.jpg',
         quote: 'There is magic in the darkroom that digital pixels can never replicate.'
       },
