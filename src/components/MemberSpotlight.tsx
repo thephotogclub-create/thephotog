@@ -62,7 +62,7 @@ const leadership: YearGroup[] = [
         role: 'Head of The Photog Club',
         insta: '@giricharan',
         image: 'member-4.jpg',
-        quote: 'Life is a series of moments captured in time. Click, frame, and live the memory.'
+        quote: "And at the end, I'm very much sure that Ill be left only with my camera"
       },
       {
         name: 'Neeraj Kumar',
