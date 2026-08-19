@@ -24,9 +24,15 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16">
           
           <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="flex items-center gap-2 mb-6 group">
-              <Camera className="w-8 h-8 text-secondary" />
-              <span className="font-serif text-3xl tracking-widest uppercase font-semibold">
+            <Link href="/" className="flex items-center gap-3 mb-6 group">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-background/80 overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.08)]">
+                <img
+                  src={`${import.meta.env.BASE_URL}logo.jpg`}
+                  alt="The Photog Club Logo"
+                  className="w-full h-full object-cover rounded-full opacity-85 group-hover:opacity-100 transition-opacity mix-blend-lighten scale-105"
+                />
+              </div>
+              <span className="font-serif text-3xl tracking-widest uppercase font-semibold text-white">
                 Photog
               </span>
             </Link>

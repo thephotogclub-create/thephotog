@@ -84,8 +84,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 sm:gap-4 group shrink-0">
-          <div className="flex h-10 w-10 sm:h-12 sm:w-12 xl:h-14 xl:w-14 items-center justify-center rounded-full border border-secondary/40 bg-secondary/15 text-secondary shadow-[0_0_20px_rgba(212,175,55,0.2)] transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary/25">
-            <Camera className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-secondary" />
+          <div className="relative flex h-11 w-11 sm:h-13 sm:w-13 xl:h-14 xl:w-14 items-center justify-center rounded-full border border-white/20 bg-background/80 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:border-secondary/60 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] overflow-hidden">
+            <img
+              src={`${import.meta.env.BASE_URL}logo.jpg`}
+              alt="The Photog Club Logo"
+              className="h-full w-full object-cover rounded-full opacity-85 group-hover:opacity-100 transition-opacity duration-300 mix-blend-lighten scale-105"
+            />
           </div>
           <div className="flex flex-col items-start">
             <span className="font-serif text-lg sm:text-2xl xl:text-3xl tracking-[0.25em] uppercase font-bold text-white leading-none">

@@ -10,7 +10,7 @@ import {
 
 const INSTAGRAM_HANDLE = '@thephotogclub';
 const INSTAGRAM_URL = 'https://www.instagram.com/thephotogclub/';
-const WHATSAPP_LINK = 'https://chat.whatsapp.com/photogmvsr';
+const WHATSAPP_LINK = 'https://chat.whatsapp.com/KpaGTKCjMln4y9XW9ikQRI';
 
 const JoinSection = () => {
   return (

@@ -5,8 +5,8 @@ import { X, ArrowUpRight } from 'lucide-react';
 const images = [
   {
     id: 1,
-    src: 'gal-1.jpeg',
-    alt: 'Nitin Bitra',
+    src: 'gal-1.jpg',
+    alt: 'Nithin Bitra',
   },
   {
     id: 2,
@@ -16,47 +16,52 @@ const images = [
   {
     id: 3,
     src: 'gal-3.jpg',
-    alt: 'Keerti Kolla',
+    alt: 'Rishikesh',
   },
   {
     id: 4,
     src: 'gal-4.jpg',
-    alt: 'Swachatha',
+    alt: 'Shivani Reddy',
   },
   {
     id: 5,
     src: 'gal-5.jpg',
-    alt: 'Shivani Sama',
+    alt: 'Kovid Reddy',
   },
   {
     id: 6,
     src: 'gal-6.jpg',
-    alt: 'Kovid Reddy',
+    alt: 'Swachatha',
   },
   {
     id: 7,
-    src: 'gal-7.jpeg',
-    alt: 'Sri Harsha',
+    src: 'gal-7.jpg',
+    alt: 'Badrinath',
   },
   {
     id: 8,
     src: 'gal-8.jpg',
-    alt: 'Kovid Reddy',
+    alt: 'Keerti Kolla',
   },
   {
     id: 9,
-    src: 'gal-9.PNG',
-    alt: 'Bhadri',
+    src: 'gal-9.jpg',
+    alt: 'Sri Harsha',
   },
   {
     id: 10,
     src: 'gal-10.jpg',
-    alt: 'Rishikesh',
+    alt: 'S V Pavan Kumar',
   },
   {
     id: 11,
     src: 'gal-11.jpg',
-    alt: 'Rishikesh',
+    alt: 'Nithin Bitra',
+  },
+  {
+    id: 12,
+    src: 'gal-12.jpg',
+    alt: 'Kovid Reddy',
   },
 ];
 
