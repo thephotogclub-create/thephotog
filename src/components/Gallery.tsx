@@ -61,7 +61,7 @@ const images = [
   },
   {
     id: 9,
-    src: 'bitra_anna.jpg',
+    src: 'gal-9.PNG',
     alt: 'Quiet Moment',
     photographer: 'Bitra Anna',
     year: '2026',

@@ -24,14 +24,14 @@ const leadership: YearGroup[] = [
         role: 'Head of The Photog Club',
         insta: '@clickssss._',
         image: 'member-8.jpg',
-        quote: 'Photography is the art of revealing what the eye misses in a fleeting glance.'
+        quote: 'I believe you can still be a photographer without a camera iykyk ;)'
       },
       {
         name: 'Rishikesh',
         role: 'Head of The Cinematography Club',
         insta: 'https://www.instagram.com/era_clicks.co?igsh=OGNveWF5ZjRrc3R3',
         image: 'member-7.jpg',
-        quote: 'The story behind the lens is what truly matters.'
+        quote: 'We don’t capture moment, we collect evidence.'
       },
     ]
   },
