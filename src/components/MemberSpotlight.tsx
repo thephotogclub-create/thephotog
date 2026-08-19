@@ -65,7 +65,7 @@ const leadership: YearGroup[] = [
         quote: 'Life is a series of moments captured in time. Click, frame, and live the memory.'
       },
       {
-        name: 'Neerajh Kumar',
+        name: 'Neeraj Kumar',
         role: 'Head of The Cinematography Club',
         insta: 'https://www.instagram.com/neeraajhkumaar?igsh=MXVzZGtlNzd4OGxhOQ==',
         image: 'member-3.jpg',

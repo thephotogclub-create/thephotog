@@ -11,7 +11,7 @@ const images = [
   {
     id: 2,
     src: 'gal-2.jpg',
-    alt: 'Neerajh Kumar',
+    alt: 'Neeraj Kumar',
   },
   {
     id: 3,
