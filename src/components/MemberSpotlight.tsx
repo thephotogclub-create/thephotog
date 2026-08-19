@@ -50,7 +50,7 @@ const leadership: YearGroup[] = [
         role: 'Head of The Cinematography Club',
         insta: '@sunnyyyyyy_20',
         image: 'member-5.jpg',
-        quote: 'There is magic in the darkroom that digital pixels can never replicate.'
+        quote: "You don't take a photograph, you make it."
       }
     ]
   },
