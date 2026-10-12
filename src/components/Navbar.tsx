@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { Camera, Menu, X } from 'lucide-react';
+import AnnouncementTicker from './AnnouncementTicker';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,7 +59,7 @@ const Navbar = () => {
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
-        const navHeight = 80;
+        const navHeight = 90;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - navHeight;
 
@@ -77,11 +78,15 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-3.5 lg:py-4'
-          : 'bg-gradient-to-b from-background/95 via-background/60 to-transparent py-4 lg:py-6'
+          ? 'bg-background/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.6)] pb-3 lg:pb-4'
+          : 'bg-gradient-to-b from-background/95 via-background/60 to-transparent pb-4 lg:pb-6'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">
+      {/* Yellow Scrolling Announcements Ticker */}
+      <AnnouncementTicker />
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between pt-3 sm:pt-4">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 sm:gap-4 group shrink-0">
           <div className="relative flex h-11 w-11 sm:h-13 sm:w-13 xl:h-14 xl:w-14 items-center justify-center rounded-full border border-white/20 bg-background/80 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:border-secondary/60 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] overflow-hidden">
